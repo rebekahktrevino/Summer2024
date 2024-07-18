@@ -1,33 +1,50 @@
 //Rebekah K. Trevino
 //3334-01
 
-fn fahrenheit_to_celsius(fahr: f64) -> f64 {
-    // to convert fahrenheit to celsius using the formula: (F - 32) * 5/9
-    (fahr - 32.0) * 5.0 / 9.0
+fn is_even (n: i32) -> bool{
+    //checking if number is even if it is divisible by 2
+    n % 2 == 0
 }
 
-fn celsius_to_fahrenheit(cel: f64) -> f64 {
-    // to convert celsius to fahrenheit using the formula: (C * 9/5) + 32
-    (cel * 9.0 / 5.0) + 32.0
-}
+fn main(){
+    // an array of 10 integer nums 
+    let numbers = [1,24,25,30,7,8,76,5,43,10];
 
-fn main() {
-    // Declare a constant for the freezing point of water in Fahrenheit 32
-    const FREEZING_POINT_F: f64 = 32.0;
+    // to iterate through array
+    for &num in &numbers{
+        println!("Number:{}",num);
 
-    // Declare a mutable variable with an initial temperature in Fahrenheit
-    let mut temperature_fahrenheit = 32.0; // Example initial temperature
-
-    // Convert the initial temperature to Celsius
-    let temperature_celsius = fahrenheit_to_celsius(temperature_fahrenheit);
-
-    // Print 
-    println!("{}°F is the same as {:.2}°C", temperature_fahrenheit, temperature_celsius);
-
-    // loop to convert and print the next 5 temperatures.
-    for i in 1..=5 {
-        temperature_fahrenheit += 1.0; // Increment by 1
-        let converted_celsius = fahrenheit_to_celsius(temperature_fahrenheit);
-        println!("{}°F is the same as {:.2}°C", temperature_fahrenheit, converted_celsius);
+        //checking if even or odd
+        if is_even(num){
+            print!("EVEN:");
+        }
+        else{
+            print!("ODD:");
+        }
+        //check if divisible by 3 and 5
+        if num % 3 == 0{
+            print!("FIZZ");
+        }
+        if num % 5 == 0{
+            print!("BUZZ");
+        }
+        println!(); //new line 
     }
+    //sum calculationusing while loop
+    let mut sum = 0;
+    let mut index = 0;
+    while index < numbers.len(){
+        sum += numbers[index];
+    index += 1;
+    } 
+    println!("Sum of all numbers:{}", sum);
+
+    //to find the largest num using a loop
+    let mut largest = numbers[0];
+    for &num in &numbers{
+        if num > largest{
+            largest = num;
+        }
+    }
+        println!("Largest number:{}", largest);
 }
